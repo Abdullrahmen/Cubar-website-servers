@@ -2,7 +2,7 @@
 
 exec {'install nginx':
   provider => shell,
-  command  => 'sudo apt -y  install nginx;
+  command  => 'sudo apt -y install nginx;
                sudo systemctl enable nginx;
                sudo systemctl start nginx;'
 }

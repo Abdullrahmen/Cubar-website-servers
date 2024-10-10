@@ -1,10 +1,13 @@
 # Sets up the web servers for the deployment of web_static
 
-exec {'Run 2_server_scripts.sh in the server':
+exec {'Sets up the web servers for the deployment of web_static':
   provider => shell,
-  command  => '../utils/send_command.sh 2_server_scripts.sh 44.193.214.147 ubuntu ../../Keys/cubar-first-server.pem;'
-}
-exec {'Send setup_web_static.conf to the server':
-  provider => shell,
-  command  => '../utils/send_config.sh ../nginx_config/setup_web_static.conf 44.193.214.147 ubuntu ../../Keys/cubar-first-server.pem;'
+  command  => 'sudo mkdir -p /var/www/Cubar/html; 
+			   sudo chmod -R 755 /var/www/Cubar/html; 
+			   sudo mkdir -p /data/web_static/releases/test /data/web_static/shared; 
+			   echo "This is a test release" | sudo tee /data/web_static/releases/test/index.html; 
+			   echo "404 error page" | sudo tee /var/www/Cubar/html/404.html; 
+			   sudo ln -sf /data/web_static/releases/test/ /data/web_static/current; 
+			   sudo chown -hR ubuntu:ubuntu /data/; 
+			   sudo rm /etc/nginx/sites-enabled/default;'
 }

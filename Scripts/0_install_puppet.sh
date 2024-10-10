@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install puppet
+sudo apt -y install puppet

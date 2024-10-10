@@ -1,3 +1,6 @@
-sudo 0_install_puppet.sh; 
-sudo puppet apply 1_initial_setup.pp; 
-sudo puppet apply 2_setup_web_static.pp; 
+# Client side
+# Send the entire scripts' folder to the server to run
+sudo ../utils/transfer_folder.sh ../Scripts 44.193.214.147 ubuntu ../../Keys/cubar-first-server.pem;
+
+# Run the command script in the server
+sudo ssh "ubuntu@44.193.214.147" -i "../../Keys/cubar-first-server.pem" "sudo ~/Scripts/command_script.sh;"

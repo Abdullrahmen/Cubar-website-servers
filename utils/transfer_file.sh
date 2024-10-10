@@ -10,5 +10,5 @@ if [ $# -lt 4 ]
 then
   echo "Usage: transfer_file.sh PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 else
-  scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~
+  sudo scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~
 fi
