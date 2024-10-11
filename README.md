@@ -27,3 +27,4 @@ There is a file called general_script.sh in the Scripts folder, where you can up
 
 * Note that these scripts use basic Puppet resources, which you can easily understand even if you're unfamiliar with them.
 
+And for automatic deployment of web_static, there is a function called deploy in the deploy_web_static.py file. It uses Fabric2 with Python 3 to automate the process. You can update the IP address and private key location to use it.
