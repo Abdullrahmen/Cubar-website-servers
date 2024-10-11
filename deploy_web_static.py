@@ -8,7 +8,7 @@ from fabric.connection import Connection
 from datetime import datetime
 from os.path import exists, isdir
 
-serverIP = '44.193.214.147'
+serverIP = '54.237.73.32'
 privateKeyPath = "/home/vagrant/Cubar/Keys/cubar-first-server.pem"
 #path of the releases in the servers
 releasesPath = "/data/web_static/releases/"
