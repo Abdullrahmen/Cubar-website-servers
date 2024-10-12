@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Fabric script that creates and distributes an archive web_static
+Fabric script that creates and distributes an archive web_dynamic nodejs project
 to the web servers
 """
 
@@ -11,18 +11,17 @@ from os.path import exists, isdir
 serverIP = '100.26.18.252'
 privateKeyPath = "/home/vagrant/Cubar/Keys/cubar-first-server.pem"
 #path of the releases in the servers
-releasesPath = "/data/web_static/releases/"
-
+releasesPath = "/data/web_dynamic_nodejs/releases/"
 
 def do_pack():
-    """generates a tgz archive from web_static folder to versions folder"""
+    """generates a tgz archive from web_dynamic_nodejs folder to versions folder"""
     try:
         c = Connection(f"ubuntu@{serverIP}", connect_kwargs={"key_filename": privateKeyPath})
         date = datetime.now().strftime("%Y%m%d%H%M%S")
         if isdir("versions") is False:
             c.local("mkdir versions")
-        file_name = "versions/web_static_{}.tgz".format(date)
-        c.local("tar -cvzf {} web_static".format(file_name))
+        file_name = "versions/web_dynamic_nodejs_{}.tgz".format(date)
+        c.local("tar -cvzf {} web_dynamic_nodejs".format(file_name))
         return file_name
     except:
         return None
@@ -40,10 +39,11 @@ def do_deploy(archive_path):
             c.run('mkdir -p {}{}/'.format(releasesPath, no_ext))
             c.run('tar -xzf /tmp/{} -C {}{}/'.format(file_n, releasesPath, no_ext))
             c.run('rm /tmp/{}'.format(file_n))
-            c.run('mv {0}{1}/web_static/* {0}{1}/'.format(releasesPath, no_ext))
-            c.run('rm -rf {}{}/web_static'.format(releasesPath, no_ext))
-            c.run('rm -rf /data/web_static/current')
-            c.run('ln -s {}{}/ /data/web_static/current'.format(releasesPath, no_ext))
+            c.run('mv {0}{1}/web_dynamic_nodejs/* {0}{1}/'.format(releasesPath, no_ext))
+            c.run('rm -rf {}{}/web_dynamic_nodejs'.format(releasesPath, no_ext))
+            c.run('rm -rf /data/web_dynamic_nodejs/current')
+            c.run('ln -s {}{}/ /data/web_dynamic_nodejs/current'.format(releasesPath, no_ext))
+            c.run('sudo kill -9 $(sudo lsof -t -i :8080)')
         return True
     except:
         return False
