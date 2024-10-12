@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 # Client side
-SERVER_IP='54.172.133.147'; 
+SERVER_IP='100.26.166.171'; 
 SERVER_USER='ubuntu'; 
 PRIVATE_KEY_LOC='../Keys/cubar-first-server.pem'; 
 

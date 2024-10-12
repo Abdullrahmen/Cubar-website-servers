@@ -8,9 +8,8 @@ from fabric.connection import Connection
 from datetime import datetime
 from os.path import exists, isdir
 
-serverIP = '100.26.18.252'
+serverIP = '54.172.133.147'
 privateKeyPath = "/home/vagrant/Cubar/Keys/cubar-first-server.pem"
-#path of the releases in the servers
 releasesPath = "/data/web_dynamic_nodejs/releases/"
 
 def do_pack():
