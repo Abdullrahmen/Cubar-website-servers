@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Client side
-SERVER_IP="18.210.15.239"; 
+SERVER_IP="18.212.119.44"; 
 SERVER_USER="ubuntu"
-PRIVATE_KEY_LOC="../Keys/cubar-first-server.pem"
+PRIVATE_KEY_LOC="../Keys/cubar.pem"
 
 # Send the load_balancer_scripts folder to the server to run
 sudo utils/transfer_folder.sh ./load_balancer_scripts $SERVER_IP ubuntu $PRIVATE_KEY_LOC;

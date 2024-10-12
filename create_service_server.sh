@@ -1,9 +1,9 @@
 #!/usr/bin/env bash 
 
 # Client side
-SERVER_IP='54.172.133.147'; 
+SERVER_IP='18.232.83.66'; 
 SERVER_USER='ubuntu'; 
-PRIVATE_KEY_LOC='../Keys/cubar-first-server.pem'; 
+PRIVATE_KEY_LOC='../Keys/cubar.pem'; 
 
 # Send the service_server_scripts folder to the server to run
 sudo utils/transfer_folder.sh ./service_server_scripts $SERVER_IP ubuntu $PRIVATE_KEY_LOC;
