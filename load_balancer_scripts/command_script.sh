@@ -6,4 +6,4 @@ sudo apt install -y haproxy
 echo "ENABLED=1" | sudo tee /etc/default/haproxy;
 
 sudo cp /home/ubuntu/load_balancer_scripts/http.cfg /etc/haproxy/haproxy.cfg;
-sudo service haproxy restart
+sudo service haproxy restart; 
